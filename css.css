@@ -1,0 +1,127 @@
+/* -----------parte frontal --------------- */
+
+/* caja de opciones  */
+.menu_principal {
+	background-image: url(/media/entrada_cueva.jpg);
+	background-position: center;
+	background-repeat: no-repeat;
+	z-index: 1;
+	width: 1000px;
+	height: 1000px;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	border-radius: 3vh;
+	font-size: 1rem;
+}
+/* primera caja con juggar */
+#play-btn {
+	color: white;
+	box-sizing: content-box;
+	font-size: 2rem;
+	margin-top: 470px;
+	width: 23vmin;
+	outline: none;
+	border: none;
+	background-color: hsl(15, 100%, 65%);
+	box-shadow: 3px 3px 5px grey;
+	border-radius: calc(1.5rem + 12px);
+}
+/* segunda caja con nivel de dificultad */
+#difiultadMenu {
+	color: white;
+	background-color: hsl(15, 100%, 65%);
+	font-size: 1.2rem;
+	text-align: center;
+	border-radius: calc(1.5rem + 12px);
+	width: 40vmin;
+}
+/* para que no hay scroll */
+* {
+	padding: 0;
+	margin: 0;
+	box-sizing: border-box;
+}
+html,body {
+	height: 100vh;
+	background-color: hsl(0, 0%, 0%);
+}
+body {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+/* creacion del tablero  */
+.grid-board {
+	display: none;
+	position: absolute;
+	z-index: 1;
+
+	grid-template-rows: repeat(20, 1fr);
+	grid-template-columns: repeat(20, 1fr);
+
+	width: 95vmin;
+	height: 95vmin;
+	/* background-image: url(/media/suelo_templo.png); */
+
+	background-color: rgba(18, 190, 70, 0.918);       /* color de fondo   <--------*/ 
+	border-radius: 1vh;
+}
+.contador {
+	z-index: 2;
+	height: 400px;
+	width: 1200px;
+	position: fixed;
+	left: 118px;
+	top: 250px;
+	font-size: 70px;
+	color: blanchedalmond;
+}
+#mostrarContador {
+	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* ------ segunda parte ------ */
+.player {
+	background-image: url(/media/CharacterRun.gif);
+	background-repeat: no-repeat;
+	background-position: center;
+	grid-row-start: 18;
+	grid-column-start: 10;
+	transform: scaleX(1);
+}
+.enemy {
+	background-image: url(/media/SpiderEnemy_GoingDown.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+}
+.goal {
+	background-image: url(/media/DoorSmallAnim.gif);
+	background-position: center;
+	background-repeat: no-repeat;
+	grid-row-start: 1;
+	grid-column-start: 20;
+	background-color: rgba(18, 190, 70, 0.918);    		/* color de fondo   <--------*/ 
+}
+.key {
+	background-image: url(/media/ItemGifs_GreenGem.gif);
+	background-repeat: no-repeat;
+	grid-row-start: 10;
+	grid-column-start: 10;
+	z-index: 2;
+}
+.fuego {
+	background-image: url(/media/SmallProps_Torch.gif);
+	background-repeat: no-repeat;
+	background-color: rgba(18, 190, 70, 0.918);       /* color de fondo   <--------*/ 
+}
+.camino {
+	background-repeat: no-repeat;
+	background-color: rgba(18, 190, 70, 0.918);       /* color de fondo   <--------*/ 
+}
+.bloqueo {
+
+	background-image: url(/media/bloque_templo.png);
+	background-repeat: no-repeat;
+}

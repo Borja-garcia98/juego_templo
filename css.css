@@ -64,7 +64,7 @@ body {
 	height: 95vmin;
 	/* background-image: url(/media/suelo_templo.png); */
 
-	background-color: rgba(18, 190, 70, 0.918);       /* color de fondo   <--------*/ 
+	background-color: rgba(51, 153, 82, 0.918);       /* color de fondo   <--------*/ 
 	border-radius: 1vh;
 }
 .contador {
@@ -123,5 +123,5 @@ body {
 .bloqueo {
 
 	background-image: url(/media/bloque_templo.png);
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 }

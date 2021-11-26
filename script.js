@@ -205,7 +205,7 @@ function setDificultat() { // modifica algunas variables para poder personalizar
 
 	switch (nivel) {					// 1. se edita la cuenta atras segun nivel 
 		case "Dificil":					// 2. se llama a cada mapa creado para cada nivel.
-										// 3. se crean el numero de enemigos que quieres en cada nivel
+			// 3. se crean el numero de enemigos que quieres en cada nivel
 			min = 1; sec = 30;
 			editorMapas(tablero);
 			contadorEnemigos = 3;
@@ -467,28 +467,28 @@ function checkDerrota() {      // si el jugador ocupa la misma posicion del enem
 }
 function gameOver(msg) {      // muestra las estadisticas cuando pierdes. entra la jugabilidad en falso y llama la funcion mostrar estadisticas.
 	playable = false;
-	setTimeout(() => {
-		if (confirm(msg + getEstadistica())) {
+	setTimeout(() => { // cambiar finde 
+		if (confirm	// poner
+			
+			
+			
+			(msg + getEstadistica())) {
 			location.reload();
 		}
-	}, 200);
+	}, 100);
 }
 function getEstadistica() { // estadisticas y puntuaciones finales al acabar el juego, recopilando enemigos matados, movimientos utilizados, mostrando la dificultad 
 	const enemiesKilled = contadorEnemigos - enemigos.length;
 	let logro = "";
-	let puntuacion; 
+	let puntuacion;
 
 	if (ganar) {  // si gana se duplica la puntuacion 
-		
-		puntuacion = (enemiesKilled + (sec * (min +2) ) ) * 2;
-		
-	
-		
-	}else{
 
- 			puntuacion = enemiesKilled + ( sec * ( min + 2 ) )
+		puntuacion = (enemiesKilled + (sec * (min + 2))) * 2;
+	} else {
+		puntuacion = enemiesKilled + (sec * (min + 2))
 	}
-	
+
 
 	// medidor de mensaje segun desempeño en el juego
 	if (enemiesKilled === contadorEnemigos - 1 && ganar && movCount === 38)
@@ -504,9 +504,31 @@ function getEstadistica() { // estadisticas y puntuaciones finales al acabar el 
 
 
 }
+// cambiar modal 
+function modal (msg){
+
+		// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
 
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
-
+}
 
 

@@ -450,6 +450,7 @@ function generarEnemigo() {       // selecciona el div y creamos al enemigo, dan
 }
 function newTurno(e) { // conjunto de funciones que engloba y lo verifica todo cada vez que pulsas la tecla.
 	// mostramos mensaje de victoria y derrota en caso de que verifique que hemso ganado o perdido						
+
 	iniciarPuntuacion()
 
 	takeInput(e);
@@ -458,22 +459,23 @@ function newTurno(e) { // conjunto de funciones que engloba y lo verifica todo c
 		return;
 	}
 	playerTurn();
-	checkDerrota();
 
-	
+	checkDerrota();
 	checkVictoria();
-	if (perder)
+
+
+	if (perder){
 		gameOver(mensajeDerrota);
 
-	else if (ganar)
+	}else if (ganar){
 		gameOver(mensajeVictoria);
-	else {
+	}else {
 		setTimeout(() => {
 			turnoEnemigo();
 			checkDerrota();
 			if (perder)
 				gameOver(mensajeDerrota);
-		}, 200);
+		}, 100);
 	}
 }
 function checkVictoria() {       // cuando el jugador tiene la llave y llega a la posicion final ha ganado.

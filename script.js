@@ -105,22 +105,22 @@ function editorMapas() {// creo un mapa por cada nivel, definiendo en 3 letras 3
 			tablero = [
 
 				['B', 'C', 'C', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', ''],
-				['C', 'C', 'B', 'C', 'C', 'B', 'B', 'B', 'C', 'C', 'B', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'B'],
+				['C', 'C', 'B', 'C', 'C', 'B', 'B', 'B', 'C', 'C', 'F', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'B'],
 				['C', 'C', 'B', 'B', 'C', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'B', 'B', 'B'],
 				['C', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'B', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B'],
-				['C', 'B', 'B', 'B', 'F', 'B', 'B', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'B', 'B', 'B', 'B'],
-				['C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'C', 'C', 'C', 'B', 'B'],
-				['C', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'C', 'C', 'B'],
-				['B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B'],
+				['C', 'B', 'B', 'B', 'F', 'C', 'C', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'B', 'B', 'B', 'B'],
+				['C', 'C', 'B', 'B', 'B', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'C', 'C', 'C', 'B', 'B'],
+				['C', 'C', 'C', 'B', 'B', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'C', 'C', 'B'],
+				['B', 'B', 'C', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B'],
 				['B', 'B', 'C', 'C', 'C', 'C', 'C', 'F', 'B', 'B', 'B', 'C', 'C', 'C', 'B', 'B', 'B', 'B', 'C', 'B'],
 				['B', 'B', 'C', 'C', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'B', 'B', 'B', 'C', 'B'],
-				['B', 'C', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'C', 'B', 'B', 'C', 'B'],
-				['B', 'C', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'B', 'C', 'B'],
-				['C', 'C', 'B', 'C', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'F', 'C', 'C', 'C', 'B'],
-				['C', 'C', 'B', 'C', 'C', 'C', 'C', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'C', 'C', 'C', 'B'],
+				['B', 'C', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'C', 'B', 'B', 'C', 'B'],
+				['B', 'C', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'B', 'C', 'B'],
+				['C', 'C', 'B', 'C', 'C', 'C', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'B', 'B', 'F', 'C', 'C', 'C', 'B'],
+				['C', 'F', 'B', 'C', 'C', 'C', 'C', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'C', 'C', 'C', 'B'],
 				['C', 'B', 'B', 'C', 'B', 'B', 'C', 'C', 'C', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'C', 'C', 'B', 'B'],
 				['C', 'B', 'B', 'C', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'B', 'B'],
-				['C', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'B', 'C', 'B', 'B'],
+				['C', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'F', 'B', 'C', 'B', 'B'],
 				['C', 'C', 'B', 'C', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B'],
 				['C', 'C', 'B', 'C', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'B', 'B'],
 				['B', 'C', 'C', 'C', 'C', 'B', 'B', 'B', 'B', 'F', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B'],
@@ -201,7 +201,6 @@ function crearTablero() { // defino las condiciones del mapeado creando divs y r
 		}
 	}
 }
-
 function setDificultat() { // modifica algunas variables para poder personalizar las condiciones del juegos segun la dificultad escogida por el usuario
 	nivel = difiultadMenu.value;
 	nivelTablero = difiultadMenu.value;
@@ -271,15 +270,14 @@ function iniciarPuntuacion(){
 		puntuacion = enemiesKilled + (sec * (min + 2))
 	}
 
-	document.getElementById('mostrarPuntuacion').innerHTML = puntuacion + ' puntuacion';
+	document.getElementById('mostrarPuntuacion').innerHTML = puntuacion + ' Puntuacion';
 
-	document.getElementById('mostrarMovimientos').innerHTML = movCount + ' moviminetos' ;
+	document.getElementById('mostrarMovimientos').innerHTML = movCount + ' Movimientos' ;
 
-	document.getElementById('mostrarEnimigosMuertos').innerHTML = enemiesKilled + ' kills '  ;
+	document.getElementById('mostrarEnimigosMuertos').innerHTML = enemiesKilled + ' Kills '  ;
 
 
 }
-
 function generarEnemigosRandom(num) {// genera enemigos en posiciones diferentes cada vez que inicia
 	for (let i = 0; i < num; i++) {
 		do {
@@ -407,28 +405,37 @@ function eliminarOldEnemigo() { // borra al enemigo de la posicion para poder mo
 }
 function updatePosicionEnemiga() { // acerca el enemigo a la posicion del jugador haciendo el efecto de persecucuion 
 
-	for (let i = 0; i < enemigos.length; i++) {
+	
+	
+	var aleatorio = Math. round(Math. random()* 1);
+	var aleatorio2 = Math. round(Math. random()* -1);
+	
 
+	// var aleatorio2 = Math. round(Math. random()* -1);
+	  for (let i = 0; i < enemigos.length; i++) {
 
+		
 		if (enemigos[i].x === jugador.x) { // cuando en el eje x   se aplique esta condicion se le sumara 1 o -1 a la posicion del enemigo
 
-			enemigos[i].y += jugador.y > enemigos[i].y ? 1 : -1;
+			enemigos[i].y += jugador.y > enemigos[i].y ? aleatorio : aleatorio2;
 			// entonces==?  devuelve valor  
 			// sino == : devuelve valor 
 
 		}
 		else if (enemigos[i].y === jugador.y) { // // cuando en el eje Y   se aplique esta condicion se le sumara 1 o -1 a la posicion del enemigo
 
-			enemigos[i].x += jugador.x > enemigos[i].x ? 1 : -1;
+			enemigos[i].x += jugador.x > enemigos[i].x ? aleatorio : aleatorio2;
 
 		} else {
 
 			// enemigos[i].y += jugador.y > enemigos[i].y ? 0 : -1;
-			enemigos[i].y += jugador.y > enemigos[i].y ? 0 : -1;
+			enemigos[i].y += jugador.y > enemigos[i].y ? aleatorio : -1;
 		}
-	}
+	
+}
 	eliminarDuplicado();
 }
+
 function eliminarDuplicado() {      // cuando dos enemigos ocupan la misma posicion, desaparecen 
 	for (let i = 0; i < enemigos.length; i++) {
 		for (let j = 1; j < enemigos.length; j++) {

@@ -2,19 +2,20 @@
 
 /* caja de opciones  */
 .menu_principal {
-
 	z-index: 1;
 	width: 1200px;
 	height: 1000px;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	overflow: auto;
 	
 }
 .fondo_menu{
 	background-image: url(/media/fondo_Borja\ .png);
 	background-position: center;
 	background-repeat:no-repeat;
+	margin-top: 100px;
 }
 
 /* creador de fuente  */

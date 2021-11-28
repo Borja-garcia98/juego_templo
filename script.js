@@ -9,7 +9,6 @@ const goal = document.getElementsByClassName("goal")[0];
 // ----- declaracion de variables 
 
 
-
 //    tiene 2 variables, cada vez que el personaje se mueve se elimina del sitio actual y 
 //    se crea otro en la posicion indicada por teclado 
 
@@ -29,6 +28,7 @@ let arrowDown;
 let arrowLeft;
 let arrowRight;
 // ------ comprobaciones -------
+let puntuacion;
 let playable = false;
 let legalInput = true;
 let llaveEncontrada = false;
@@ -49,7 +49,6 @@ let parpadeoContador;
 let min = 1;
 let sec = 10;
 let ejectuarCronometro = setInterval(iniciarCrono, 1000);
-
 // ------------- iniciamos set up -----------------
 
 setUp();
@@ -63,9 +62,13 @@ function empezarJuego() { // llamada a la creacion del tablero y funciones basic
 	setDificultat();
 	document.getElementsByClassName("menu_principal")[0].remove();
 	gridBoard.style.display = "grid";
-	ejectuarCronometro;
+
+	
+
 	generarEnemigosRandom(contadorEnemigos);
-	playable = true;
+	if (playable = true){
+		ejectuarCronometro;
+	}
 
 }
 function editorMapas() {// creo un mapa por cada nivel, definiendo en 3 letras 3 valores diferentes   
@@ -256,6 +259,27 @@ function iniciarCrono() {// creo una cuenta atras, cuando llega a 0 el jugador p
 		perder = true;
 	}
 }
+function iniciarPuntuacion(){
+	
+	const enemiesKilled = contadorEnemigos - enemigos.length;
+
+	if (ganar) {  // si gana se duplica la puntuacion 
+
+		puntuacion = (enemiesKilled + (sec * (min + 2))) * 2;
+
+	} else {
+		puntuacion = enemiesKilled + (sec * (min + 2))
+	}
+
+	document.getElementById('mostrarPuntuacion').innerHTML = puntuacion + ' puntuacion';
+
+	document.getElementById('mostrarMovimientos').innerHTML = movCount + ' moviminetos' ;
+
+	document.getElementById('mostrarEnimigosMuertos').innerHTML = enemiesKilled + ' kills '  ;
+
+
+}
+
 function generarEnemigosRandom(num) {// genera enemigos en posiciones diferentes cada vez que inicia
 	for (let i = 0; i < num; i++) {
 		do {
@@ -274,31 +298,6 @@ function posiionIlegalEnemigo() {// valida la posicion de la araña
 	if (randomx === tamaño / 2 && randomy === tamaño / 2) return true; // posicion llave 
 	if (enemigos.some((enemigo) => randomx === enemigo.x && randomy === enemigo.y)) return true;
 	return false;
-}
-function newTurno(e) { // conjunto de funciones que engloba y lo verifica todo cada vez que pulsas la tecla.
-	// mostramos mensaje de victoria y derrota en caso de que verifique que hemso ganado o perdido						
-	takeInput(e);
-	if (!legalInput) {
-		legalInput = true;
-		return;
-	}
-	playerTurn();
-	checkDerrota();
-
-	checkVictoria();
-	if (perder)
-		gameOver(mensajeDerrota);
-
-	else if (ganar)
-		gameOver(mensajeVictoria);
-	else {
-		setTimeout(() => {
-			turnoEnemigo();
-			checkDerrota();
-			if (perder)
-				gameOver(mensajeDerrota);
-		}, 200);
-	}
 }
 function takeInput(e) {// teclado de flechitas y validacion de rotacion 
 
@@ -408,9 +407,6 @@ function eliminarOldEnemigo() { // borra al enemigo de la posicion para poder mo
 }
 function updatePosicionEnemiga() { // acerca el enemigo a la posicion del jugador haciendo el efecto de persecucuion 
 
-
-
-
 	for (let i = 0; i < enemigos.length; i++) {
 
 
@@ -452,6 +448,34 @@ function generarEnemigo() {       // selecciona el div y creamos al enemigo, dan
 		gridBoard.appendChild(newEnemy);
 	}
 }
+function newTurno(e) { // conjunto de funciones que engloba y lo verifica todo cada vez que pulsas la tecla.
+	// mostramos mensaje de victoria y derrota en caso de que verifique que hemso ganado o perdido						
+	iniciarPuntuacion()
+
+	takeInput(e);
+	if (!legalInput) {
+		legalInput = true;
+		return;
+	}
+	playerTurn();
+	checkDerrota();
+
+	
+	checkVictoria();
+	if (perder)
+		gameOver(mensajeDerrota);
+
+	else if (ganar)
+		gameOver(mensajeVictoria);
+	else {
+		setTimeout(() => {
+			turnoEnemigo();
+			checkDerrota();
+			if (perder)
+				gameOver(mensajeDerrota);
+		}, 200);
+	}
+}
 function checkVictoria() {       // cuando el jugador tiene la llave y llega a la posicion final ha ganado.
 	if (jugador.x === 1 && jugador.y === tamaño && llaveEncontrada)
 		ganar = true;
@@ -466,69 +490,13 @@ function checkDerrota() {      // si el jugador ocupa la misma posicion del enem
 	}
 }
 function gameOver(msg) {      // muestra las estadisticas cuando pierdes. entra la jugabilidad en falso y llama la funcion mostrar estadisticas.
+	
 	playable = false;
-	setTimeout(() => { // cambiar finde 
-		if (confirm	// poner
-			
-			
-			
-			(msg + getEstadistica())) {
-			location.reload();
-		}
-	}, 100);
-}
-function getEstadistica() { // estadisticas y puntuaciones finales al acabar el juego, recopilando enemigos matados, movimientos utilizados, mostrando la dificultad 
-	const enemiesKilled = contadorEnemigos - enemigos.length;
-	let logro = "";
-	let puntuacion;
-
-	if (ganar) {  // si gana se duplica la puntuacion 
-
-		puntuacion = (enemiesKilled + (sec * (min + 2))) * 2;
-	} else {
-		puntuacion = enemiesKilled + (sec * (min + 2))
-	}
-
-
-	// medidor de mensaje segun desempeño en el juego
-	if (enemiesKilled === contadorEnemigos - 1 && ganar && movCount === 38)
-		logro = "Has jugado perfecto!";
-
-	else if (ganar && (enemiesKilled === contadorEnemigos - 1 || movCount === 38))
-		logro = "Has jugado bien !"
-	return `${logro}
-			PUNTUACION TOTAL ${puntuacion}.
-			Nº Movimientos ${movCount} .
-			Dificultad : ${nivel.toUpperCase()}.
-			Has matado a  ${enemiesKilled} ENEMIGOS${enemiesKilled === 1 ? '' : ''}`;
-
-
-}
-// cambiar modal 
-function modal (msg){
-
-		// Get the modal
-var modal = document.getElementById("myModal");
-
-// Get the button that opens the modal
-var btn = document.getElementById("myBtn");
-
-// Get the <span> element that closes the modal
-var span = document.getElementsByClassName("close")[0];
-
-// When the user clicks the button, open the modal 
-btn.onclick = function() {
-  modal.style.display = "block";
+	alert(msg)
 }
 
 
-// When the user clicks anywhere outside of the modal, close it
-window.onclick = function(event) {
-  if (event.target == modal) {
-    modal.style.display = "none";
-  }
-}
 
-}
+
 
 

@@ -51,7 +51,7 @@
 
 }
 #Facil{
-	color: white;
+	color: rgb(0, 0, 0);
 	background-image: url(/media/boton_play.PNG);
 	background-color: hsla(127, 3%, 55%, 0.631);
 	font-size: 1.5rem;
@@ -60,7 +60,7 @@
 	font-family: "Blocktopia";
 }
 #Medio{
-	color: white;
+	color: rgb(0, 0, 0);
 	background-color: hsl(120, 6%, 79%);
 	font-size: 1.5rem;
 	text-align: center;
@@ -70,7 +70,7 @@
 
 }
 #Dificil{
-	color: white;
+	color: rgb(0, 0, 0);
 	background-color: hsla(127, 3%, 55%, 0.631);
 	font-size: 1.5rem;
 	text-align: center;
@@ -106,14 +106,70 @@ body {
 	height: 400px;
 	width: 1200px;
 	position: fixed;
-	left: 118px;
-	top: 250px;
-	font-size: 70px;
+	left: 90px;
+	top: 120px;
+	font-size: 90px;
 	color: blanchedalmond;
 }
 #mostrarContador {
-	font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+	font-family: "Blocktopia";
 }
+.boton_actualizar {
+	z-index: 2;
+	height: 400px;
+	width: 1200px;
+	position: fixed;
+	left: 35px;
+	top: 450px;
+}
+#actualizar {
+	font-family: "Blocktopia";
+	box-shadow: 3px 3px 5px grey;
+	width: 50vmin;
+	/* box-sizing: content-box; */
+	font-size: 2rem;
+}
+
+.puntuacion {
+	z-index: 2;
+	height: 400px;
+	width: 1200px;
+	position: fixed;
+	left: 1050px;
+	top: 150px;
+	font-size: 30px;
+	color: blanchedalmond;
+}
+#mostrarPuntuacion {
+	font-family: "Blocktopia";
+}
+.movimientos {
+	z-index: 2;
+	height: 400px;
+	width: 1200px;
+	position: fixed;
+	left: 1050px;
+	top: 300px;
+	font-size: 30px;
+	color: blanchedalmond;
+}
+#mostrarMovimientos {
+	font-family: "Blocktopia";
+}
+.enimigosMuertos {
+	z-index: 2;
+	height: 400px;
+	width: 1200px;
+	position: fixed;
+	left: 1050px;
+	top: 450px;
+	font-size: 30px;
+	color: blanchedalmond;
+}
+#mostrarEnimigosMuertos {
+	font-family: "Blocktopia";
+}
+
 /* ------ segunda parte ------ */
 .player {
 	background-image: url(/media/CharacterRun.gif);
@@ -154,3 +210,8 @@ body {
 	background-image: url(/media/bloque_templo.png);
 	background-repeat: repeat;
 }
+
+
+/*------- modal ------- */
+
+

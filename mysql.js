@@ -3,9 +3,9 @@
 const mysql = require ('mysql');
 
 const conection = mysql.createConnection({
-    host:'127.0.0.1',
-    user:'borja',
-    password:'borja',
+    host:'localhost',
+    user:'root',
+    password:'YES',
     database: 'usuarios'
 })
 
@@ -14,6 +14,12 @@ conection.connect(  (err) =>  {
     if(err) throw err 
     console.log('la conexion funciona')
 
+})
+
+const insertar = "INSERT INTO users (id, puntuacion) VALUES (NULL, 'OTRA PUNTUACION') "
+conection.query(insertar, (err, rows )=> {
+
+    if(err) throw err 
 })
 
 conection.query( 'SELECT * from users', (err, rows) => {
@@ -31,14 +37,8 @@ conection.query( 'SELECT * from users', (err, rows) => {
    
    console.log(`El usuario tiene id ${usuarioUno.id} y tiene puntuacion ${usuarioUno.puntuacion}` ) // con mensaje  
 //    console.log(usuarioUno.id) // capturar solo un usuario (sin mensaje como el de arriba) --> puedo acceder solo al dato que yo quiero ( id)
-
-    
-
-
-
-
-
-
 } )
+
+
 
 conection.end()

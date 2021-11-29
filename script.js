@@ -264,7 +264,7 @@ function iniciarPuntuacion(){
 
 	if (ganar) {  // si gana se duplica la puntuacion 
 
-		puntuacion = (enemiesKilled + (sec * (min + 2))) * 2;
+		puntuacion = ((enemiesKilled + (sec * (min + 2)  ) ) + 100);
 
 	} else {
 		puntuacion = enemiesKilled + (sec * (min + 2))

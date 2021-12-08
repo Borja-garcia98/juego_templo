@@ -186,14 +186,14 @@ body {
 	background-repeat: no-repeat;
 }
 .goal {
-	background-image: url(/media/DoorSmallAnim.gif);
+	background-image: url(/media/cartel.png);
 	background-position: center;
 	background-repeat: no-repeat;
 	grid-row-start: 1;
 	grid-column-start: 20;
 }
 .key {
-	background-image: url(/media/ItemGifs_Key.gif);
+	background-image: url(/media/BigChest.png);
 	background-repeat: no-repeat;
 	grid-row-start: 10;
 	grid-column-start: 10;

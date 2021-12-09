@@ -50,7 +50,7 @@
 	box-shadow: 3px 3px 5px grey;
 	font-family: "Blocktopia";
 	cursor:pointer;
-
+	
 
 }
 #Facil{
@@ -62,7 +62,7 @@
 	width: 40vmin;
 	font-family: "Blocktopia";
 	cursor:pointer;
-
+	
 }
 #Medio{
 	color: rgb(0, 0, 0);
@@ -73,7 +73,7 @@
 	width: 40vmin;
 	font-family: "Blocktopia";
 	cursor:pointer;
-
+	
 }
 #Dificil{
 	color: rgb(0, 0, 0);
@@ -83,7 +83,7 @@
 	width: 40vmin;
 	font-family: "Blocktopia";
 	cursor:pointer;
-
+	
 }
 html,body {
 	height: 100vh;
@@ -99,10 +99,10 @@ body {
 	display: none;
 	position: absolute;
 	z-index: 1;
-
+	
 	grid-template-rows: repeat(20, 1fr);
 	grid-template-columns: repeat(20, 1fr);
-
+	
 	width: 95vmin;
 	height: 95vmin;
 	background-image: url(/media/cesped.jpg);
@@ -112,7 +112,7 @@ body {
 	z-index: 2;
 	position: fixed;
 	left: 90px;
-	top: 120px;
+	top: 50px;
 	font-size: 90px;
 	color: blanchedalmond;
 }
@@ -125,7 +125,6 @@ body {
 	left: 90px;
 	position: fixed;
 	top: 450px;
-	
 }
 #actualizar {
 	font-family: "Blocktopia";
@@ -134,6 +133,23 @@ body {
 	font-size: 2rem;
 	cursor:pointer;
 }
+
+.ranking{
+	z-index: 2;
+	position: fixed;
+	left: 0px;
+	top: 350px;
+	font-size: 30px;
+}
+
+#mostrarRanking{
+	font-family: "Blocktopia";
+	box-shadow: 3px 3px 5px grey;
+	width: 37vmin;
+	font-size: 2rem;
+	cursor:pointer;
+}
+
 
 .puntuacion {
 	z-index: 2;
@@ -148,7 +164,6 @@ body {
 }
 .movimientos {
 	z-index: 2;
-
 	position: fixed;
 	right: 70px;
 	top: 300px;
@@ -197,7 +212,7 @@ body {
 	background-repeat: no-repeat;
 	grid-row-start: 10;
 	grid-column-start: 10;
-	z-index: 2;
+	z-index: 1;
 }
 .fuego {
 	background-image: url(/media/SmallProps_Torch.gif);
@@ -211,7 +226,88 @@ body {
 	background-image: url(/media/bloque_templo.png);
 	background-repeat: repeat;
 }
+.logoCep{
+
+	background-image: url(/media/cep.PNG);
+	background-repeat: no-repeat;
+
+}
 
 
 
 
+
+/* The Modal (background) */
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  -webkit-animation-name: fadeIn; /* Fade in the background */
+  -webkit-animation-duration: 0.8s;
+  animation-name: fadeIn;
+  animation-duration: 0.8s;
+  font-size: 20px;
+  font-family: "Blocktopia";
+
+}
+
+/* Modal Content */
+.modal-content {
+  position: fixed;
+  align-content: center;
+  bottom: 0;
+ background-color: #fefefe;
+  width: 100%;
+  -webkit-animation-name: slideIn;
+  -webkit-animation-duration: 0.8s;
+  animation-name: slideIn;
+  animation-duration: 0.8s
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 65px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #565756;
+  color: rgb(0, 0, 0);
+}
+
+/* Add Animation */
+@-webkit-keyframes slideIn {
+  from {bottom: -300px; opacity: 0} 
+  to {bottom: 0; opacity: 1}
+}
+
+@keyframes slideIn {
+  from {bottom: -300px; opacity: 0}
+  to {bottom: 0; opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}
+
+@keyframes fadeIn {
+  from {opacity: 0} 
+  to {opacity: 1}
+}

@@ -5,6 +5,7 @@ const gridBoard = document.getElementsByClassName('grid-board')[0];
 const playButton = document.getElementById("play-btn");
 const difiultadMenu = document.getElementById("difiultadMenu");
 const goal = document.getElementsByClassName("goal")[0];
+const boton_actualizar= document.getElementById("actualizar");
 
 // ----- declaracion de variables 
 
@@ -41,6 +42,7 @@ const mensajeVictoria = "Felicidades! Has ganado! ";
 let fuego = 'F';
 let bloqueo = 'B';
 let camino = 'C';
+let logoCep = 'L';
 // ---- variables para crear mapas 
 let nivelTablero;
 let tablero = [];
@@ -49,6 +51,8 @@ let parpadeoContador;
 let min = 1;
 let sec = 10;
 let ejectuarCronometro = setInterval(iniciarCrono, 1000);
+//------ ranking
+let mejorPuntuacion = [];
 // ------------- iniciamos set up -----------------
 
 setUp();
@@ -62,15 +66,12 @@ function empezarJuego() { // llamada a la creacion del tablero y funciones basic
 	setDificultat();
 	document.getElementsByClassName("menu_principal")[0].remove();
 	gridBoard.style.display = "grid";
-
-	
-
 	generarEnemigosRandom(contadorEnemigos);
-	if (playable = true){
+	if (playable = true) {
 		ejectuarCronometro;
 	}
-
 }
+
 function editorMapas() {// creo un mapa por cada nivel, definiendo en 3 letras 3 valores diferentes   
 	// asignando a cada valor unas restricciones personalizadas queluego al printarse juntas dibujan el mapa 
 
@@ -79,7 +80,7 @@ function editorMapas() {// creo un mapa por cada nivel, definiendo en 3 letras 3
 
 			tablero = [
 				['B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', ''],
-				['B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B'],
+				['B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'L', 'L', 'L', 'L'],
 				['B', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B'],
 				['B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'B'],
 				['B', 'C', 'B', 'B', 'F', 'B', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'B', 'C', 'B'],
@@ -105,7 +106,7 @@ function editorMapas() {// creo un mapa por cada nivel, definiendo en 3 letras 3
 			tablero = [
 
 				['B', 'C', 'C', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', ''],
-				['C', 'C', 'B', 'C', 'C', 'B', 'B', 'B', 'C', 'C', 'F', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'B'],
+				['C', 'C', 'B', 'C', 'C', 'B', 'B', 'B', 'C', 'C', 'F', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'L'],
 				['C', 'C', 'B', 'B', 'C', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'C', 'B', 'B', 'B'],
 				['C', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'B', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'B'],
 				['C', 'B', 'B', 'B', 'F', 'C', 'C', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'B', 'B', 'B', 'B'],
@@ -133,7 +134,7 @@ function editorMapas() {// creo un mapa por cada nivel, definiendo en 3 letras 3
 			tablero = [
 
 				['C', 'C', 'C', 'B', 'B', 'B', 'B', 'B', 'B', 'B', 'C', 'C', 'C', 'C', 'C', 'C', 'B', 'B', 'C', ''],
-				['C', 'B', 'C', 'C', 'C', 'B', 'C', 'C', 'C', 'C', 'C', 'F', 'C', 'B', 'B', 'B', 'B', 'B', 'C', 'B'],
+				['C', 'B', 'C', 'C', 'C', 'B', 'C', 'C', 'C', 'C', 'C', 'F', 'C', 'B', 'B', 'B', 'B', 'B', 'C', 'L'],
 				['C', 'B', 'B', 'B', 'B', 'B', 'C', 'B', 'B', 'B', 'C', 'C', 'C', 'B', 'C', 'C', 'C', 'B', 'C', 'B'],
 				['C', 'C', 'C', 'C', 'B', 'C', 'C', 'C', 'B', 'B', 'B', 'C', 'B', 'B', 'C', 'F', 'C', 'C', 'C', 'B'],
 				['B', 'C', 'F', 'C', 'C', 'C', 'F', 'C', 'B', 'C', 'B', 'C', 'B', 'B', 'C', 'C', 'C', 'B', 'B', 'B'],
@@ -175,6 +176,17 @@ function crearTablero() { // defino las condiciones del mapeado creando divs y r
 				div_fuego.style.gridColumnStart = j + 1;
 
 				gridBoard.appendChild(div_fuego);
+			}
+
+			if (tablero[i][j] == logoCep) { // llamo a las 'F' de cada mapa 
+
+				let div_logoCep = document.createElement("div");
+				div_logoCep.className = "logoCep";
+
+				div_logoCep.style.gridRowStart = i + 1;
+				div_logoCep.style.gridColumnStart = j + 1;
+
+				gridBoard.appendChild(div_logoCep);
 			}
 			// zona bloqueo 
 			if (tablero[i][j] == bloqueo) {// llamo a las 'B' de cada mapa
@@ -228,6 +240,8 @@ function setDificultat() { // modifica algunas variables para poder personalizar
 }
 function iniciarCrono() {// creo una cuenta atras, cuando llega a 0 el jugador pierde 
 
+	
+
 	if (min != 0 || sec != 0) {
 		sec = sec - 1;
 		if (sec == -1) {
@@ -257,25 +271,63 @@ function iniciarCrono() {// creo una cuenta atras, cuando llega a 0 el jugador p
 		}
 		perder = true;
 	}
+	if ( playable == false){
+
+		sec=0;
+		min=0;
+	}
+
 }
-function iniciarPuntuacion(){
-	
+function iniciarPuntuacion() {
+
 	const enemiesKilled = contadorEnemigos - enemigos.length;
 
-	if (ganar) {  // si gana se duplica la puntuacion 
+	
+if (  sec > 40 ){
+		puntuacion = (movCount *2 ) + 50;
+}
 
-		puntuacion = ((enemiesKilled + (sec * (min + 2)  ) ) + 100);
 
-	} else {
-		puntuacion = enemiesKilled + (sec * (min + 2))
-	}
+
 
 	document.getElementById('mostrarPuntuacion').innerHTML = puntuacion + ' Puntuacion';
 
-	document.getElementById('mostrarMovimientos').innerHTML = movCount + ' Movimientos' ;
+	document.getElementById('mostrarMovimientos').innerHTML = movCount + ' Movimientos';
 
-	document.getElementById('mostrarEnimigosMuertos').innerHTML = enemiesKilled + ' Kills '  ;
+	document.getElementById('mostrarEnimigosMuertos').innerHTML = enemiesKilled + ' Kills ';
 
+
+}
+function mostrarRanking() {
+
+		mejorPuntuacion.push(puntuacion);
+		
+		
+		//get yhe modal
+		var modal = document.getElementById("myModal");
+		// Get the button that opens the modal
+		
+		var btn = document.getElementById("mostrarRanking");
+
+		// Get the <span> element that closes the modal
+		var span = document.getElementsByClassName("close")[0];
+		
+		// When the user clicks the button, open the modal 
+		btn.onclick = function() {
+			modal.style.display = "block";
+		}
+		
+		// When the user clicks on <span> (x), close the modal
+		span.onclick = function() {
+			modal.style.display = "none";
+		}
+		
+		// When the user clicks anywhere outside of the modal, close it
+		window.onclick = function(event) {
+			if (event.target == modal) {
+				modal.style.display = "none";
+			}
+		}
 
 }
 function generarEnemigosRandom(num) {// genera enemigos en posiciones diferentes cada vez que inicia
@@ -358,16 +410,15 @@ function clearOldPlayer() { // se elimina el jugador de la posicion antigua cada
 
 }
 function crearJugador() {  // el jugador se crea cada vez que se mueve 
+	
 	const newPlayer = document.createElement("div");
 	newPlayer.classList.add("player");
 
-
-
 	if (llaveEncontrada)
 		newPlayer.style.backgroundColor = "";
-	newPlayer.style.gridRowStart = `${jugador.x}`;
-	newPlayer.style.gridColumnStart = `${jugador.y}`;
-	gridBoard.appendChild(newPlayer);
+		newPlayer.style.gridRowStart = `${jugador.x}`;
+		newPlayer.style.gridColumnStart = `${jugador.y}`;
+		gridBoard.appendChild(newPlayer);
 
 
 	if ((arrowLeft == true && arrowUp == true) || (arrowLeft == true && arrowDown == true)) {
@@ -405,16 +456,16 @@ function eliminarOldEnemigo() { // borra al enemigo de la posicion para poder mo
 }
 function updatePosicionEnemiga() { // acerca el enemigo a la posicion del jugador haciendo el efecto de persecucuion 
 
-	
-	
-	var aleatorio = Math. round(Math. random()* 1);
-	var aleatorio2 = Math. round(Math. random()* -1);
-	
+
+
+	var aleatorio = Math.round(Math.random() * 1);
+	var aleatorio2 = Math.round(Math.random() * -1);
+
 
 	// var aleatorio2 = Math. round(Math. random()* -1);
-	  for (let i = 0; i < enemigos.length; i++) {
+	for (let i = 0; i < enemigos.length; i++) {
 
-		
+
 		if (enemigos[i].x === jugador.x) { // cuando en el eje x   se aplique esta condicion se le sumara 1 o -1 a la posicion del enemigo
 
 			enemigos[i].y += jugador.y > enemigos[i].y ? aleatorio : aleatorio2;
@@ -431,11 +482,10 @@ function updatePosicionEnemiga() { // acerca el enemigo a la posicion del jugado
 			// enemigos[i].y += jugador.y > enemigos[i].y ? 0 : -1;
 			enemigos[i].y += jugador.y > enemigos[i].y ? aleatorio : -1;
 		}
-	
-}
+
+	}
 	eliminarDuplicado();
 }
-
 function eliminarDuplicado() {      // cuando dos enemigos ocupan la misma posicion, desaparecen 
 	for (let i = 0; i < enemigos.length; i++) {
 		for (let j = 1; j < enemigos.length; j++) {
@@ -471,12 +521,12 @@ function newTurno(e) { // conjunto de funciones que engloba y lo verifica todo c
 	checkVictoria();
 
 
-	if (perder){
+	if (perder) {
 		gameOver(mensajeDerrota);
 
-	}else if (ganar){
+	} else if (ganar) {
 		gameOver(mensajeVictoria);
-	}else {
+	} else {
 		setTimeout(() => {
 			turnoEnemigo();
 			checkDerrota();
@@ -499,12 +549,13 @@ function checkDerrota() {      // si el jugador ocupa la misma posicion del enem
 	}
 }
 function gameOver(msg) {      // muestra las estadisticas cuando pierdes. entra la jugabilidad en falso y llama la funcion mostrar estadisticas.
-	
+
 	playable = false;
-	alert(msg)
+	alert(msg);
 }
 
 
+	
 
 
 

@@ -26,7 +26,8 @@
 				<option id="Medio" value="Medio">Medio</option>
 				<option id="Dificil" value="Dificil">Difícil</option>
 
-		</select>			
+		</select>	
+		
 		
 	</div>
 </div>
@@ -38,7 +39,7 @@
 			<p id="mostrarContador" > </p>  
 		</div>
 
-
+		
 		<div class="puntuacion">
 			<p id="mostrarPuntuacion"></p>  
 		</div>
@@ -51,8 +52,37 @@
 			<p id="mostrarEnimigosMuertos"></p>  
 		</div>
 
+		
+		<div class="ranking">
+			<button  id="mostrarRanking"   onclick='mostrarRanking()'>Ranking</button>
+			
+			<!-- The Modal -->
+			<div id="myModal" class="modal">
+
+				<!-- Modal content -->
+				<div class="modal-content">
+
+				<div class="modal-header">
+					<span class="close">&times;</span>
+					<h2> Mejores puntuaciones</h2>
+				</div>
+				<div class="puntuacionesTotales">
+					<p>  Puntuacion: 114 </p>
+					<p>  Puntuacion: 86 </p>
+					<p>  Puntuacion: 138 </p>
+					<p>  Puntuacion: 97 </p>
+				
+
+
+				</div>
+			
+				</div>
+			
+			</div>
+		</div>
+		
 		<div class="boton_actualizar">
-			<input type="button" value="Volver a Jugar" id="actualizar" onclick="location.reload()"/>
+			<input type="button" value="Volver a Jugar" id="actualizar" onclick="location.reload()"/> 
 		</div>
 
 
